@@ -12,6 +12,8 @@ class PrintEditionItem {
     return this.state;
   }
 
+
+
   set bookStatus(amount) {
     if (amount >= 100) {
       this.state = 100;
@@ -25,6 +27,8 @@ class PrintEditionItem {
       return this.state;
     }
   }
+
+
 
   get bookStatus() {
     return this.state;
