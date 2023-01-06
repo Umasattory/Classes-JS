@@ -13,9 +13,9 @@ class PrintEditionItem {
 
   set state(amount) {
     if (amount < 0) {
-      this.state = 0;
+      this._state = 0;
     } else if (this.state > 100) {
-      this.state = 100;
+      this._state = 100;
     } else {
       this._state = amount;
     }
@@ -96,7 +96,12 @@ class Library {
 //_____________________________________Задание____________________________________________//
 
 console.log("-----------------------------------------------------------------")
-
+const sherlock = new PrintEditionItem("Полное собрание повести и рассказы о Шерлоке Холмсе", 2019, 1008)
+console.log(sherlock.releaseDate); //2019
+sherlock.state = 105; //100
+console.log(sherlock.state)
+sherlock.fix();
+console.log(sherlock.state); //100
 console.log("-----------------------------------------------------------------")
 const library = new Library("Библиатека имени В.И.Ленина");
 library.addBook(new DetectiveBook("Артур Конан Дойл", "Полное собрание повестей и рассказов о Шерлоке Холмсе в одном томе", 2019, 1008));
@@ -106,3 +111,6 @@ library.addBook(new Magazine("Мурзилка", 1924, 60));
 
 library.findBookBy('name', 'Пикник на обочине');
 library.giveBookByName('Пикник на обочине');
+
+console.log("-----------------------------------------------------------------")
+console.log(library.books)
